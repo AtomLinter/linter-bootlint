@@ -1,14 +1,15 @@
 {
   "name": "linter-bootlint",
   "main": "./lib/linter-bootlint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A short description of your package (not yet) ready",
-  "activationEvents": ["linter-bootlint:toggle"],
+  "activationEvents": [
+    "linter-bootlint:toggle"
+  ],
   "repository": "https://github.com/AtomLinter/linter-bootlint",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

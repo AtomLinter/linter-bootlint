@@ -1,15 +1,17 @@
 {
   "name": "linter-bootlint",
-  "main": "./lib/linter-bootlint",
+  "main": "./lib/init",
+  "linter-package": true,
+  "activationEvents": [],
   "version": "0.0.1",
-  "description": "A short description of your package (not yet) ready",
-  "activationEvents": [
-    "linter-bootlint:toggle"
-  ],
+  "description": "Lint Bootstrap HTML on the fly, using bootlint",
+  "activationEvents": [],
   "repository": "https://github.com/AtomLinter/linter-bootlint",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bootlint": "~0.8.0"
+  }
 }

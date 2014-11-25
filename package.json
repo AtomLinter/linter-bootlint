@@ -3,9 +3,8 @@
   "main": "./lib/init",
   "linter-package": true,
   "activationEvents": [],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lint Bootstrap HTML on the fly, using bootlint",
-  "activationEvents": [],
   "repository": "https://github.com/AtomLinter/linter-bootlint",
   "license": "MIT",
   "engines": {

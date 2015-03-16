@@ -11,6 +11,6 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "bootlint": "~0.8.0"
+    "bootlint": "~0.12.0"
   }
 }

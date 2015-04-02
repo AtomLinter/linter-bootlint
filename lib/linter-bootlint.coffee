@@ -30,6 +30,6 @@ class LinterBootlint extends Linter
       @executablePath = atom.config.get 'linter-bootlint.bootlintExecutablePath'
 
   destroy: ->
-    atom.config.unobserve 'linter-bootlint.bootlintExecutablePath'
+    atom.config.dispose
 
 module.exports = LinterBootlint

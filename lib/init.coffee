@@ -1,8 +1,11 @@
 path = require 'path'
 
 module.exports =
-  configDefaults:
-    bootlintExecutablePath: path.join __dirname, '..', 'node_modules', '.bin'
+  config:
+    executablePath:
+      type: 'string'
+      default: path.join __dirname, '..', 'node_modules', '.bin'
+      description: 'Path of the `bootlinter` executable'
 
   activate: ->
     console.log 'activate linter-bootlint'

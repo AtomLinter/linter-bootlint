@@ -8,8 +8,7 @@ class LinterBootlint extends Linter
 
   # A string, list, tuple or callable that returns a string, list or tuple,
   # containing the command line (with arguments) used to lint.
-
-  cmd: "bootlint -d #{atom.config.get 'linter-bootlint.flags'}"
+  cmd: 'bootlint'
 
   linterName: 'bootlint'
 
@@ -25,6 +24,9 @@ class LinterBootlint extends Linter
 
   constructor: (editor) ->
     super(editor)
+
+    flags = atom.config.get 'linter-bootlint.flags'
+    @cmd += " -d #{flags}" if flags
 
     @listener = atom.config.observe 'linter-bootlint.executablePath', =>
       @executablePath = atom.config.get 'linter-bootlint.executablePath'

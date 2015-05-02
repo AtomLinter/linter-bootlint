@@ -8,7 +8,8 @@ class LinterBootlint extends Linter
 
   # A string, list, tuple or callable that returns a string, list or tuple,
   # containing the command line (with arguments) used to lint.
-  cmd: 'bootlint'
+
+  cmd: "bootlint -d #{atom.config.get 'linter-bootlint.flags'}"
 
   linterName: 'bootlint'
 

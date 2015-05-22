@@ -1,6 +1,5 @@
 linterPath = atom.packages.getLoadedPackage('linter').path
 Linter = require "#{linterPath}/lib/linter"
-findFile = require "#{linterPath}/lib/util"
 
 class LinterBootlint extends Linter
   # The syntax that the linter handles. May be a string or
@@ -26,10 +25,13 @@ class LinterBootlint extends Linter
   constructor: (editor) ->
     super(editor)
 
-    atom.config.observe 'linter-bootlint.bootlintExecutablePath', =>
-      @executablePath = atom.config.get 'linter-bootlint.bootlintExecutablePath'
+    flags = atom.config.get 'linter-bootlint.flags'
+    @cmd += " -d #{flags}" if flags
+
+    @listener = atom.config.observe 'linter-bootlint.executablePath', =>
+      @executablePath = atom.config.get 'linter-bootlint.executablePath'
 
   destroy: ->
-    atom.config.dispose
+    @listener.dispose()
 
 module.exports = LinterBootlint

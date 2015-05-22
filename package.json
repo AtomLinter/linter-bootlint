@@ -2,7 +2,6 @@
   "name": "linter-bootlint",
   "main": "./lib/init",
   "linter-package": true,
-  "activationCommands": {},
   "version": "0.0.5",
   "description": "Lint Bootstrap HTML on the fly, using bootlint",
   "repository": "https://github.com/AtomLinter/linter-bootlint",

@@ -1,15 +1,61 @@
 {
   "name": "linter-bootlint",
   "main": "./lib/init",
-  "linter-package": true,
   "version": "0.0.6",
-  "description": "Lint Bootstrap HTML on the fly, using bootlint",
-  "repository": "https://github.com/AtomLinter/linter-bootlint",
+  "keywords": [
+    "html",
+    "lint",
+    "linter",
+    "bootlint"
+  ],
+  "description": "Lint Bootstrap HTML on the fly, using bootlint.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-bootlint.git"},
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-bootlint/issues"
+  },
+  "homepage": "https://github.com/AtomLinter/linter-bootlint#readme",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "bootlint": "~0.14.2"
+    "bootlint": "~0.14.2",
+    "atom-linter": "^4.1.1",
+    "atom-package-deps": "^3.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "babel-eslint": "^4.1.6",
+    "eslint-config-airbnb": "^2.1.1"
+  },
+  "eslintConfig": {
+    "rules": {
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "no-console": 0
+    },
+    "extends": "airbnb/base",
+    "parser": "babel-eslint",
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    }
+  },
+  "package-deps": [
+    "linter"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
   }
 }

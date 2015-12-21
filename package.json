@@ -1,7 +1,7 @@
 {
   "name": "linter-bootlint",
   "main": "./lib/init",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "keywords": [
     "html",
     "lint",
@@ -11,7 +11,8 @@
   "description": "Lint Bootstrap HTML on the fly, using bootlint.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AtomLinter/linter-bootlint.git"},
+    "url": "git+https://github.com/AtomLinter/linter-bootlint.git"
+  },
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-bootlint/issues"
   },

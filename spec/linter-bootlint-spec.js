@@ -17,9 +17,10 @@ describe('The bootlint provider for Linter', () => {
 
   describe('checks a file with issues and', () => {
     let editor = null;
+    const madFile = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
     beforeEach(() => {
       waitsForPromise(() => {
-        return atom.workspace.open(path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html')).then(openEditor => {
+        return atom.workspace.open(madFile).then(openEditor => {
           editor = openEditor;
         });
       });
@@ -35,11 +36,13 @@ describe('The bootlint provider for Linter', () => {
 
     it('verifies the first message', () => {
       waitsForPromise(() => {
+        const messageText = 'E033 `.alert` with dismiss button must have ' +
+          'class `.alert-dismissible`';
         return lint(editor).then(messages => {
           expect(messages[0].type).toBeDefined();
           expect(messages[0].type).toEqual('Error');
           expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual('E033 `.alert` with dismiss button must have class `.alert-dismissible`');
+          expect(messages[0].text).toEqual(messageText);
           expect(messages[0].filePath).toBeDefined();
           expect(messages[0].filePath).toMatch(/.+missing-alert-dismissible\.html$/);
           expect(messages[0].range).toBeDefined();

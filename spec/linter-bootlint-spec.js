@@ -19,19 +19,17 @@ describe('The bootlint provider for Linter', () => {
     let editor = null;
     const madFile = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
     beforeEach(() => {
-      waitsForPromise(() => {
-        return atom.workspace.open(madFile).then(openEditor => {
-          editor = openEditor;
-        });
-      });
+      waitsForPromise(() =>
+        atom.workspace.open(madFile).then(openEditor => editor = openEditor)
+      );
     });
 
     it('finds at least one message', () => {
-      waitsForPromise(() => {
-        return lint(editor).then(messages => {
-          expect(messages.length).toBeGreaterThan(0);
-        });
-      });
+      waitsForPromise(() =>
+        lint(editor).then(messages =>
+          expect(messages.length).toBeGreaterThan(0)
+        )
+      );
     });
 
     it('verifies the first message', () => {
@@ -55,12 +53,12 @@ describe('The bootlint provider for Linter', () => {
   });
 
   it('finds nothing wrong with a valid file', () => {
-    waitsForPromise(() => {
-      return atom.workspace.open(path.join(__dirname, 'fixtures', 'valid.html')).then(editor => {
-        return lint(editor).then(messages => {
-          expect(messages.length).toEqual(0);
-        });
-      });
-    });
+    waitsForPromise(() =>
+      atom.workspace.open(path.join(__dirname, 'fixtures', 'valid.html')).then(editor =>
+        lint(editor).then(messages =>
+          expect(messages.length).toEqual(0)
+        )
+      )
+    );
   });
 });

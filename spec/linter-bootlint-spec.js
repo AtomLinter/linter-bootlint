@@ -20,7 +20,7 @@ describe('The bootlint provider for Linter', () => {
     const madFile = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
     beforeEach(() => {
       waitsForPromise(() =>
-        atom.workspace.open(madFile).then(openEditor => editor = openEditor)
+        atom.workspace.open(madFile).then(openEditor => { editor = openEditor; })
       );
     });
 

@@ -2,6 +2,10 @@
 
 import * as path from 'path';
 
+const validPath = path.join(__dirname, 'fixtures', 'valid.html');
+const madPath = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
+const confErrPath = path.join(__dirname, 'fixtures', 'config-errors.html');
+
 describe('The bootlint provider for Linter', () => {
   const lint = require(path.join('..', 'lib', 'init.js')).provideLinter().lint;
 
@@ -17,10 +21,9 @@ describe('The bootlint provider for Linter', () => {
 
   describe('checks a file with issues and', () => {
     let editor = null;
-    const madFile = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
     beforeEach(() => {
       waitsForPromise(() =>
-        atom.workspace.open(madFile).then(openEditor => { editor = openEditor; })
+        atom.workspace.open(madPath).then(openEditor => { editor = openEditor; })
       );
     });
 
@@ -37,15 +40,9 @@ describe('The bootlint provider for Linter', () => {
         const messageText = 'E033 `.alert` with dismiss button must have ' +
           'class `.alert-dismissible`';
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
           expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
           expect(messages[0].text).toEqual(messageText);
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+missing-alert-dismissible\.html$/);
-          expect(messages[0].range).toBeDefined();
-          expect(messages[0].range.length).toBeDefined();
-          expect(messages[0].range.length).toEqual(2);
+          expect(messages[0].filePath).toBe(madPath);
           expect(messages[0].range).toEqual([[25, 24], [25, 56]]);
         });
       });
@@ -54,10 +51,25 @@ describe('The bootlint provider for Linter', () => {
 
   it('finds nothing wrong with a valid file', () => {
     waitsForPromise(() =>
-      atom.workspace.open(path.join(__dirname, 'fixtures', 'valid.html')).then(editor =>
+      atom.workspace.open(validPath).then(editor =>
         lint(editor).then(messages =>
           expect(messages.length).toEqual(0)
         )
+      )
+    );
+  });
+
+  it('shows configuration errors', () => {
+    waitsForPromise(() =>
+      atom.workspace.open(confErrPath).then(editor =>
+        lint(editor).then(messages => {
+          const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` ' +
+            'tag that disables old IE compatibility modes';
+          expect(messages[0].type).toEqual('Error');
+          expect(messages[0].text).toEqual(messageText);
+          expect(messages[0].filePath).toBe(confErrPath);
+          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+        })
       )
     );
   });

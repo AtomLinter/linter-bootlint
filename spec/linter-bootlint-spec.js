@@ -73,4 +73,20 @@ describe('The bootlint provider for Linter', () => {
       )
     );
   });
+
+  it('allows disabling of specific errors', () => {
+    waitsForPromise(() =>
+      atom.workspace.open(confErrPath).then(editor => {
+        atom.config.set('linter-bootlint.flags', ['W002']);
+        return lint(editor).then(messages => {
+          const messageText = 'W003 `<head>` is missing viewport `<meta>` tag ' +
+            'that enables responsiveness';
+          expect(messages[0].type).toBe('Error');
+          expect(messages[0].text).toBe(messageText);
+          expect(messages[0].filePath).toBe(confErrPath);
+          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+        });
+      })
+    );
+  });
 });

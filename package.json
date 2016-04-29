@@ -1,6 +1,6 @@
 {
   "name": "linter-bootlint",
-  "main": "./lib/init",
+  "main": "./lib/init.js",
   "version": "1.0.2",
   "keywords": [
     "html",
@@ -21,25 +21,28 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "apm test"
+  },
   "dependencies": {
     "bootlint": "~0.14.2",
     "atom-linter": "^4.5.1",
     "atom-package-deps": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.2.3"
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^1.0.4",
+    "eslint-plugin-import": "^1.6.0"
   },
   "eslintConfig": {
     "rules": {
-      "comma-dangle": [
-        2,
-        "never"
-      ],
-      "no-console": 0
+      "comma-dangle": [2, "never"],
+      "no-console": 0,
+      "global-require": 0,
+      "import/no-unresolved": [2, {"ignore": ["atom"]}]
     },
-    "extends": "airbnb/base",
+    "extends": "airbnb-base",
     "globals": {
       "atom": true
     },

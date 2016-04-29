@@ -2,13 +2,13 @@
 
 import * as path from 'path';
 
+const lint = require(path.join('..', 'lib', 'init.js')).provideLinter().lint;
+
 const validPath = path.join(__dirname, 'fixtures', 'valid.html');
 const madPath = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
 const confErrPath = path.join(__dirname, 'fixtures', 'config-errors.html');
 
 describe('The bootlint provider for Linter', () => {
-  const lint = require(path.join('..', 'lib', 'init.js')).provideLinter().lint;
-
   beforeEach(() => {
     atom.workspace.destroyActivePaneItem();
     waitsForPromise(() => {

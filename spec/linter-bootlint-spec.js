@@ -40,10 +40,10 @@ describe('The bootlint provider for Linter', () => {
         const messageText = 'E033 `.alert` with dismiss button must have ' +
           'class `.alert-dismissible`';
         return lint(editor).then(messages => {
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toEqual(messageText);
+          expect(messages[0].type).toBe('Error');
+          expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(madPath);
-          expect(messages[0].range).toEqual([[25, 24], [25, 56]]);
+          expect(messages[0].range).toEqual([[25, 25], [25, 28]]);
         });
       });
     });
@@ -53,7 +53,7 @@ describe('The bootlint provider for Linter', () => {
     waitsForPromise(() =>
       atom.workspace.open(validPath).then(editor =>
         lint(editor).then(messages =>
-          expect(messages.length).toEqual(0)
+          expect(messages.length).toBe(0)
         )
       )
     );
@@ -65,10 +65,10 @@ describe('The bootlint provider for Linter', () => {
         lint(editor).then(messages => {
           const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` ' +
             'tag that disables old IE compatibility modes';
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toEqual(messageText);
+          expect(messages[0].type).toBe('Error');
+          expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(confErrPath);
-          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+          expect(messages[0].range).toEqual([[0, 2], [0, 9]]);
         })
       )
     );
@@ -84,7 +84,7 @@ describe('The bootlint provider for Linter', () => {
           expect(messages[0].type).toBe('Error');
           expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(confErrPath);
-          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+          expect(messages[0].range).toEqual([[0, 2], [0, 9]]);
         });
       })
     );

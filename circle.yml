@@ -1,17 +1,8 @@
-dependencies:
-  override:
-    - curl -L https://atom.io/download/deb -o atom-amd64.deb
-    - sudo dpkg --install atom-amd64.deb || true
-    - sudo apt-get update
-    - sudo apt-get -f install
-    - apm install
 test:
   override:
-    - atom -v
-    - apm -v
-    - npm run lint
-    - apm test
+    - curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh
 
-machine:
-  node:
-    version: 6
+dependencies:
+  override:
+    # If nothing is put here, CircleCI will run `npm install` using the system Node.js
+    - echo "Managed in the script"

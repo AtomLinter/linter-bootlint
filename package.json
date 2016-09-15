@@ -38,19 +38,20 @@
   "eslintConfig": {
     "rules": {
       "comma-dangle": [
-        2,
+        "error",
         "never"
       ],
-      "no-console": 0,
-      "global-require": 0,
+      "no-console": "off",
+      "global-require": "off",
       "import/no-unresolved": [
-        2,
+        "error",
         {
           "ignore": [
             "atom"
           ]
         }
-      ]
+      ],
+      "import/no-extraneous-dependencies": "off"
     },
     "extends": "airbnb-base",
     "globals": {

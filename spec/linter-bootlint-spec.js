@@ -23,7 +23,7 @@ describe('The bootlint provider for Linter', () => {
     let editor = null;
     beforeEach(() => {
       waitsForPromise(() =>
-        atom.workspace.open(madPath).then(openEditor => { editor = openEditor; })
+        atom.workspace.open(madPath).then((openEditor) => { editor = openEditor; })
       );
     });
 
@@ -39,7 +39,7 @@ describe('The bootlint provider for Linter', () => {
       waitsForPromise(() => {
         const messageText = 'E033 `.alert` with dismiss button must have ' +
           'class `.alert-dismissible`';
-        return lint(editor).then(messages => {
+        return lint(editor).then((messages) => {
           expect(messages[0].type).toBe('Error');
           expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(madPath);
@@ -62,7 +62,7 @@ describe('The bootlint provider for Linter', () => {
   it('shows configuration errors', () => {
     waitsForPromise(() =>
       atom.workspace.open(confErrPath).then(editor =>
-        lint(editor).then(messages => {
+        lint(editor).then((messages) => {
           const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` ' +
             'tag that disables old IE compatibility modes';
           expect(messages[0].type).toBe('Error');
@@ -76,9 +76,9 @@ describe('The bootlint provider for Linter', () => {
 
   it('allows disabling of specific errors', () => {
     waitsForPromise(() =>
-      atom.workspace.open(confErrPath).then(editor => {
+      atom.workspace.open(confErrPath).then((editor) => {
         atom.config.set('linter-bootlint.flags', ['W002']);
-        return lint(editor).then(messages => {
+        return lint(editor).then((messages) => {
           const messageText = 'W003 `<head>` is missing viewport `<meta>` tag ' +
             'that enables responsiveness';
           expect(messages[0].type).toBe('Error');

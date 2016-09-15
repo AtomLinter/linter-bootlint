@@ -1,4 +1,6 @@
-# Project specific config
+### Project specific config ###
+language: generic
+
 env:
   matrix:
     - ATOM_CHANNEL=stable
@@ -8,11 +10,7 @@ os:
   - linux
   - osx
 
-# Installed for linting the project
-language: node_js
-node_js: "6"
-
-# Generic setup follows
+### Generic setup follows ###
 script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
 
 notifications:

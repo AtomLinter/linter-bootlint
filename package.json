@@ -36,12 +36,8 @@
     "eslint-plugin-import": "^1.16.0"
   },
   "eslintConfig": {
+    "extends": "airbnb-base",
     "rules": {
-      "comma-dangle": [
-        "error",
-        "never"
-      ],
-      "no-console": "off",
       "global-require": "off",
       "import/no-unresolved": [
         "error",
@@ -50,15 +46,12 @@
             "atom"
           ]
         }
-      ],
-      "import/no-extraneous-dependencies": "off"
+      ]
     },
-    "extends": "airbnb-base",
     "globals": {
       "atom": true
     },
     "env": {
-      "es6": true,
       "node": true
     }
   },

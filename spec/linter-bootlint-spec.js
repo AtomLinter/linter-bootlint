@@ -2,7 +2,7 @@
 
 import * as path from 'path';
 
-const lint = require(path.join('..', 'lib', 'init.js')).provideLinter().lint;
+const lint = require('../lib/init.js').provideLinter().lint;
 
 const validPath = path.join(__dirname, 'fixtures', 'valid.html');
 const madPath = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');

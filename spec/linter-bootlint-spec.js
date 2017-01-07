@@ -14,7 +14,7 @@ describe('The bootlint provider for Linter', () => {
     waitsForPromise(() => {
       atom.packages.activatePackage('linter-bootlint');
       return atom.packages.activatePackage('language-html').then(() =>
-        atom.workspace.open(path.join(__dirname, 'fixtures', 'valid.html'))
+        atom.workspace.open(path.join(__dirname, 'fixtures', 'valid.html')),
       );
     });
   });
@@ -23,15 +23,15 @@ describe('The bootlint provider for Linter', () => {
     let editor = null;
     beforeEach(() => {
       waitsForPromise(() =>
-        atom.workspace.open(madPath).then((openEditor) => { editor = openEditor; })
+        atom.workspace.open(madPath).then((openEditor) => { editor = openEditor; }),
       );
     });
 
     it('finds at least one message', () => {
       waitsForPromise(() =>
         lint(editor).then(messages =>
-          expect(messages.length).toBeGreaterThan(0)
-        )
+          expect(messages.length).toBeGreaterThan(0),
+        ),
       );
     });
 
@@ -53,9 +53,9 @@ describe('The bootlint provider for Linter', () => {
     waitsForPromise(() =>
       atom.workspace.open(validPath).then(editor =>
         lint(editor).then(messages =>
-          expect(messages.length).toBe(0)
-        )
-      )
+          expect(messages.length).toBe(0),
+        ),
+      ),
     );
   });
 
@@ -69,8 +69,8 @@ describe('The bootlint provider for Linter', () => {
           expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(confErrPath);
           expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
-        })
-      )
+        }),
+      ),
     );
   });
 
@@ -86,7 +86,7 @@ describe('The bootlint provider for Linter', () => {
           expect(messages[0].filePath).toBe(confErrPath);
           expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
         });
-      })
+      }),
     );
   });
 });

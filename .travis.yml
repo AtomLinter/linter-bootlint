@@ -8,7 +8,6 @@ env:
 
 os:
   - linux
-  - osx
 
 ### Generic setup follows ###
 script:
@@ -30,10 +29,12 @@ git:
 
 sudo: false
 
+dist: trusty
+
 addons:
   apt:
     packages:
     - build-essential
-    - git
-    - libgnome-keyring-dev
     - fakeroot
+    - git
+    - libsecret-1-dev

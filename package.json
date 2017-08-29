@@ -18,8 +18,23 @@
   },
   "homepage": "https://github.com/AtomLinter/linter-bootlint#readme",
   "license": "MIT",
+  "configSchema": {
+    "executablePath": {
+      "description": "Allows overriding the path of the `bootlint` executable.",
+      "type": "string",
+      "default": ""
+    },
+    "flags": {
+      "description": "Disable certain lint checks (comma-separated), refer to the `bootlint` GitHub page for error codes.",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    }
+  },
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.7.0 <2.0.0"
   },
   "scripts": {
     "lint": "eslint .",

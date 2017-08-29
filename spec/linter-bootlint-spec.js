@@ -40,10 +40,10 @@ describe('The bootlint provider for Linter', () => {
         const messageText = 'E033 `.alert` with dismiss button must have ' +
           'class `.alert-dismissible`';
         return lint(editor).then((messages) => {
-          expect(messages[0].type).toBe('Error');
-          expect(messages[0].text).toBe(messageText);
-          expect(messages[0].filePath).toBe(madPath);
-          expect(messages[0].range).toEqual([[25, 24], [25, 56]]);
+          expect(messages[0].severity).toBe('error');
+          expect(messages[0].excerpt).toBe(messageText);
+          expect(messages[0].location.file).toBe(madPath);
+          expect(messages[0].location.position).toEqual([[25, 24], [25, 56]]);
         });
       });
     });
@@ -65,10 +65,10 @@ describe('The bootlint provider for Linter', () => {
         lint(editor).then((messages) => {
           const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` ' +
             'tag that disables old IE compatibility modes';
-          expect(messages[0].type).toBe('Error');
-          expect(messages[0].text).toBe(messageText);
-          expect(messages[0].filePath).toBe(confErrPath);
-          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+          expect(messages[0].severity).toBe('error');
+          expect(messages[0].excerpt).toBe(messageText);
+          expect(messages[0].location.file).toBe(confErrPath);
+          expect(messages[0].location.position).toEqual([[0, 0], [0, 15]]);
         }),
       ),
     );
@@ -81,10 +81,10 @@ describe('The bootlint provider for Linter', () => {
         return lint(editor).then((messages) => {
           const messageText = 'W003 `<head>` is missing viewport `<meta>` tag ' +
             'that enables responsiveness';
-          expect(messages[0].type).toBe('Error');
-          expect(messages[0].text).toBe(messageText);
-          expect(messages[0].filePath).toBe(confErrPath);
-          expect(messages[0].range).toEqual([[0, 0], [0, 15]]);
+          expect(messages[0].severity).toBe('error');
+          expect(messages[0].excerpt).toBe(messageText);
+          expect(messages[0].location.file).toBe(confErrPath);
+          expect(messages[0].location.position).toEqual([[0, 0], [0, 15]]);
         });
       }),
     );

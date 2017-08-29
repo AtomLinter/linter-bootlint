@@ -1,5 +1,21 @@
 # Change Log
 
+## [v1.1.0](https://github.com/AtomLinter/linter-bootlint/tree/v1.1.0) (2017-08-28)
+[Full Changelog](https://github.com/AtomLinter/linter-bootlint/compare/v1.0.4...v1.1.0)
+
+**Implemented enhancements:**
+
+- Process Execution Timed Out [\#44](https://github.com/AtomLinter/linter-bootlint/issues/44)
+- Updates and minor fixes [\#105](https://github.com/AtomLinter/linter-bootlint/pull/105) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update Travis CI configuration [\#103](https://github.com/AtomLinter/linter-bootlint/pull/103) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update eslint to version 4.5.0 🚀 [\#100](https://github.com/AtomLinter/linter-bootlint/pull/100) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update atom-linter to version 10.0.0 🚀 [\#98](https://github.com/AtomLinter/linter-bootlint/pull/98) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Object.dirname is deprecated. [\#102](https://github.com/AtomLinter/linter-bootlint/issues/102)
+- Guard against TextEditors with no path [\#104](https://github.com/AtomLinter/linter-bootlint/pull/104) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v1.0.4](https://github.com/AtomLinter/linter-bootlint/tree/v1.0.4) (2017-02-14)
 [Full Changelog](https://github.com/AtomLinter/linter-bootlint/compare/v1.0.3...v1.0.4)
 

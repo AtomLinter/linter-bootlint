@@ -4,7 +4,7 @@ import * as path from 'path';
 // eslint-disable-next-line no-unused-vars
 import { it, fit, wait, beforeEach, afterEach } from 'jasmine-fix';
 
-const lint = require('../lib/init.js').provideLinter().lint;
+const { lint } = require('../lib/init.js').provideLinter();
 
 const validPath = path.join(__dirname, 'fixtures', 'valid.html');
 const madPath = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');

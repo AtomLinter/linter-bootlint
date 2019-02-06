@@ -1,8 +1,10 @@
 'use babel';
 
 import * as path from 'path';
-// eslint-disable-next-line no-unused-vars
-import { it, fit, wait, beforeEach, afterEach } from 'jasmine-fix';
+import {
+  // eslint-disable-next-line no-unused-vars
+  it, fit, wait, beforeEach, afterEach,
+} from 'jasmine-fix';
 
 const { lint } = require('../lib/init.js').provideLinter();
 
@@ -10,11 +12,11 @@ const validPath = path.join(__dirname, 'fixtures', 'valid.html');
 const madPath = path.join(__dirname, 'fixtures', 'missing-alert-dismissible.html');
 const confErrPath = path.join(__dirname, 'fixtures', 'config-errors.html');
 
-const jqueryText = 'W005 Unable to locate jQuery, which is required for ' +
-  "Bootstrap's JavaScript plugins to work; however, you might not be " +
-  "using Bootstrap's JavaScript";
-const W003head = 'W003 `<head>` is missing viewport `<meta>` tag that ' +
-  'enables responsiveness';
+const jqueryText = 'W005 Unable to locate jQuery, which is required for '
+  + "Bootstrap's JavaScript plugins to work; however, you might not be "
+  + "using Bootstrap's JavaScript";
+const W003head = 'W003 `<head>` is missing viewport `<meta>` tag that '
+  + 'enables responsiveness';
 
 describe('The bootlint provider for Linter', () => {
   beforeEach(async () => {
@@ -26,8 +28,8 @@ describe('The bootlint provider for Linter', () => {
   it('checks a file with issues', async () => {
     const editor = await atom.workspace.open(madPath);
     const messages = await lint(editor);
-    const messageText = 'E033 `.alert` with dismiss button must have ' +
-      'class `.alert-dismissible`';
+    const messageText = 'E033 `.alert` with dismiss button must have '
+      + 'class `.alert-dismissible`';
 
     expect(messages.length).toBe(1);
     expect(messages[0].severity).toBe('error');
@@ -46,8 +48,8 @@ describe('The bootlint provider for Linter', () => {
   it('shows configuration errors', async () => {
     const editor = await atom.workspace.open(confErrPath);
     const messages = await lint(editor);
-    const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` ' +
-      'tag that disables old IE compatibility modes';
+    const messageText = 'W002 `<head>` is missing X-UA-Compatible `<meta>` '
+      + 'tag that disables old IE compatibility modes';
 
     expect(messages.length).toBe(3);
     expect(messages[0].severity).toBe('error');

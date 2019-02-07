@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/AtomLinter/linter-bootlint/compare/v1.1.0...v1.1.1) (2019-02-07)
+
+
+### Bug Fixes
+
+* **deps:** pin all dependencies ([cf6fffd](https://github.com/AtomLinter/linter-bootlint/commit/cf6fffd)), closes [#116](https://github.com/AtomLinter/linter-bootlint/issues/116)
+* **deps:** update dependency bootlint to v0.16.2 ([f8d3af1](https://github.com/AtomLinter/linter-bootlint/commit/f8d3af1))
+* **package:** update atom-package-deps to version 5.0.0 ([efca767](https://github.com/AtomLinter/linter-bootlint/commit/efca767))
+
 ## [v1.1.0](https://github.com/AtomLinter/linter-bootlint/tree/v1.1.0) (2017-08-28)
 [Full Changelog](https://github.com/AtomLinter/linter-bootlint/compare/v1.0.4...v1.1.0)
 

@@ -1,5 +1,3 @@
-# Change Log
-
 ## [v1.1.0](https://github.com/AtomLinter/linter-bootlint/tree/v1.1.0) (2017-08-28)
 [Full Changelog](https://github.com/AtomLinter/linter-bootlint/compare/v1.0.4...v1.1.0)
 

@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/AtomLinter/linter-bootlint/compare/v1.1.4...v1.1.5) (2019-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency atom-package-deps to v5.1.0 ([3ecbf5e](https://github.com/AtomLinter/linter-bootlint/commit/3ecbf5e))
+
 ## [1.1.4](https://github.com/AtomLinter/linter-bootlint/compare/v1.1.3...v1.1.4) (2019-03-13)
 
 

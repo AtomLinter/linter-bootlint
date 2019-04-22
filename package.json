@@ -1,7 +1,7 @@
 {
   "name": "linter-bootlint",
   "main": "./lib/init.js",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "private": true,
   "keywords": [
     "html",

@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/AtomLinter/linter-bootlint/compare/v1.1.5...v1.1.6) (2019-05-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency bootlint to v0.16.6 ([a5e790c](https://github.com/AtomLinter/linter-bootlint/commit/a5e790c))
+
 ## [1.1.5](https://github.com/AtomLinter/linter-bootlint/compare/v1.1.4...v1.1.5) (2019-04-22)
 
 

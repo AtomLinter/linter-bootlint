@@ -49,7 +49,7 @@ branches:
 git:
   depth: 10
 
-dist: trusty
+dist: xenial
 
 sudo: false
 
@@ -60,6 +60,7 @@ addons:
     - fakeroot
     - git
     - libsecret-1-dev
+    - libgconf-2-4
 
 stages:
   - test
